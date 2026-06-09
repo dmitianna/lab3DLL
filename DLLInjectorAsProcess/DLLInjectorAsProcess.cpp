@@ -42,6 +42,26 @@ int main(int argc, char* argv[])
     }
     printf("[+] CreateRemoteThread succeeded\n");
 
+    WaitForSingleObject(hRemoteThread, INFINITE);
+
+    DWORD dwExitCode = 0;
+
+    if (!GetExitCodeThread(hRemoteThread, &dwExitCode))
+    {
+        printf("[!] ERROR: GetExitCodeThread failed : %lu\n", GetLastError());
+    }
+    else
+    {
+        if (dwExitCode == 0)
+        {
+            printf("[!] DLL was not loaded\n");
+        }
+        else
+        {
+            printf("[+] LoadLibraryA returned: 0x%lX\n",dwExitCode);
+        }
+    }
+
     CloseHandle(hRemoteThread);
     CloseHandle(hProcess);
     return 0;
