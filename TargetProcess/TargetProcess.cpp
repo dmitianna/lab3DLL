@@ -7,9 +7,9 @@
 int main()
 {
     int i = 0;
+    printf("Target Process PID: %lu\n", GetCurrentProcessId());
     while (true)
-    {
-        printf("Target Process PID: %lu\n", GetCurrentProcessId());
+    {   
         printf("Processing - %d\n", i++);
         Sleep(1000);
     }

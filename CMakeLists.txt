@@ -22,4 +22,4 @@ add_executable(DLLInjectorAsProcess DLLInjectorAsProcess/DLLInjectorAsProcess.cp
 add_library(DllInjectorAsDll SHARED DllInjectorAsDll/DllInjectorAsDll.cpp)
 
 # ProtectedProcess.exe
-# add_executable(ProtectedProcess ProtectedProcess/ProtectedProcess.cpp)
+add_executable(ProtectedTargetProcess ProtectedTargetProcess/ProtectedTargetProcess.cpp)
