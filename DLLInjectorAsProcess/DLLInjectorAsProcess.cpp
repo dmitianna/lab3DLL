@@ -1,11 +1,14 @@
-
 #include <Windows.h>
 #include <winerror.h>
-
 #include <stdio.h>
 
 int main(int argc, char* argv[])
 {
+    if (argc != 2)
+    {
+        printf("Usage: %s <PID>\n",argv[0]);
+        return 1;
+    }
     char szDLLPathToInject[] = { "VirusDLL.dll" };
     int nDLLPathLen = lstrlenA(szDLLPathToInject);
     int nTotBytesToAllocate = nDLLPathLen + 1; // including NULL character.
